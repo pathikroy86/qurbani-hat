@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import React from 'react';
 
 const AnimalsPage = () => {
     return (
         <div>
-            All Animals
+            All animals
         </div>
     );
 };
