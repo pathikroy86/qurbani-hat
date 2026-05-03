@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 
 const FeaturedCard = ({ animal }) => {
-    const { name, breed, category, price, weight, image, location } = animal;
+    const { name, breed, category, price, weight, image, location, id } = animal;
     return (
         <div>
             <div className="card bg-base-100 shadow-sm">
@@ -20,7 +21,7 @@ const FeaturedCard = ({ animal }) => {
                     <h2 className="text-[#1F7A4D] text-xl font-bold">Tk {price}</h2>
                     <p className="text-[#6D756F] text-sm ">{weight} | {location}</p>
                     <div className="mt-6">
-                        <button className="btn bg-[#1F7A4D] text-white btn-block">Details</button>
+                        <Link href={`/featuredAnimals/${id}`}><button className="btn bg-[#1F7A4D] text-white btn-block">Details</button></Link>
                     </div>
                 </div>
             </div>

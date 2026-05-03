@@ -1,13 +1,7 @@
-import Banner from "@/components/Banner";
-import FeaturedAnimals from "@/components/FeaturedAnimals";
 
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
 
-  return (
-    <div>
-      <Banner></Banner>
-      <FeaturedAnimals></FeaturedAnimals>
-    </div>
-  );
+  redirect('/featuredAnimals');
 }

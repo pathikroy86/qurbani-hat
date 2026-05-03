@@ -1,10 +1,21 @@
+import FeaturedCard from '@/components/FeaturedCard';
+import { fetchAllAnimals } from '@/lib/data-load';
 import Link from 'next/link';
 import React from 'react';
 
-const AnimalsPage = () => {
+const AnimalsPage = async () => {
+    const animals = await fetchAllAnimals();
+    console.log(animals);
     return (
-        <div>
-            All animals
+        <div className='w-11/12 mx-auto py-5 md:py-8'>
+            <div className='mb-5'>
+                <h1 className='text-4xl font-bold'>All Animals</h1>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+                {
+                    animals.map((animal, index) => <FeaturedCard key={index} animal={animal}></FeaturedCard>)
+                }
+            </div>
         </div>
     );
 };
