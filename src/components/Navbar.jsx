@@ -1,7 +1,14 @@
+"use client"
+import { authClient } from '@/lib/auth-client';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+    const { data: session, isPending } = authClient.useSession();
+    const user = session?.user;
+    const image = session?.image;
+    console.log(user)
     return (
         <div className="navbar bg-base-300 shadow-sm">
             <div className="navbar-start">
@@ -25,8 +32,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                <Link href="/signin" className="btn bg-[#145C39] text-white font-medium">Login</Link>
-                <Link href="/signup" className="btn bg-[#C68A2D] font-medium">Register</Link>
+                {session ? <div className='flex items-center gap-3'><div className="avatar">
+                    <div className="w-10">
+                        <Image className='rounded-full'
+                            src={image}
+                            alt='user image'
+                            width={10}
+                            height={10}
+                        />
+                    </div>
+                </div><p>Welcome, {user.name}</p>
+                    <Link href="/signin" onClick={async () => await authClient.signOut()} className="btn bg-[#145C39] text-white font-medium">Logout</Link>
+                </div> : <div>
+                    <Link href="/signin" className="btn bg-[#145C39] text-white font-medium">Login</Link>
+                    <Link href="/signup" className="btn bg-[#C68A2D] font-medium">Register</Link>
+                </div>}
+
             </div>
         </div>
     );
