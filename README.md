@@ -7,29 +7,41 @@ The purpose of this project is to make Qurbani animal browsing and booking easie
 
 Key Features:
 User registration and login
+
 Google login support
+
 Browse all animals
+
 View featured animals
+
 Animal details page
+
 Order form for booking
+
 User profile page
+
 Update profile information
+
 Change name, image, email, and password
+
 Mobile responsive navbar
+
 Qurbani tips section
+
 Simple carousel animation using Animate.css
+
 Loading spinner for route loading
 
 Npm Packages Used:
-nextjs
-react
-react-dom
-better-auth
-@better-auth/mongo-adapter
-mongodb
-react-hook-form
-react-toastify
-react-icons
-animate.css
-tailwindcss
-daisyui
+nextjs,
+react,
+react-dom,
+better-auth,
+better-auth/mongo-adapter,
+mongodb,
+react-hook-form,
+react-toastify,
+react-icons,
+animate.css,
+tailwindcss,
+daisyui,
