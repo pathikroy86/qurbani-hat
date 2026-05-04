@@ -3,12 +3,13 @@ import { authClient } from '@/lib/auth-client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
-    const { data: session, isPending } = authClient.useSession();
+    const { data: session } = authClient.useSession();
     const user = session?.user;
-    const image = session?.image;
-    console.log(user)
+    const image = user?.image;
+
     return (
         <div className="navbar bg-base-300 shadow-sm">
             <div className="navbar-start">
@@ -32,16 +33,19 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-                {session ? <div className='flex items-center gap-3'><div className="avatar">
-                    <div className="w-10">
-                        <Image className='rounded-full'
-                            src={image}
-                            alt='user image'
-                            width={10}
-                            height={10}
-                        />
-                    </div>
-                </div><p>Welcome, {user.name}</p>
+                {user ? <div className='flex items-center gap-3'>
+                    {image && <div className="avatar">
+                        <div className="w-10 rounded-full">
+                            <Image
+                                src={image}
+                                alt={`${user.name}'s profile image`}
+                                width={20}
+                                height={20}
+                                className='h-10 w-10 rounded-full object-cover'
+                            />
+                        </div>
+                    </div>}
+                    <p>Welcome, {user.name}</p>
                     <Link href="/signin" onClick={async () => await authClient.signOut()} className="btn bg-[#145C39] text-white font-medium">Logout</Link>
                 </div> : <div>
                     <Link href="/signin" className="btn bg-[#145C39] text-white font-medium">Login</Link>
