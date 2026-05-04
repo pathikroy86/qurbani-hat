@@ -19,7 +19,7 @@ const Banner = async () => {
                     <div id="slide1" className="carousel-item relative w-full">
                         <Image
                             src={allAnimals[0].image}
-                            className="w-full"
+                            className="w-full animate__animated animate__pulse animate__infinite animate__slow"
                             alt="something"
                             width={400}
                             height={400}
@@ -32,7 +32,7 @@ const Banner = async () => {
                     <div id="slide2" className="carousel-item relative w-full">
                         <Image
                             src={allAnimals[1].image}
-                            className="w-full"
+                            className="w-full animate__animated animate__pulse animate__infinite animate__slow"
                             alt="something"
                             fill={true}
                         />
@@ -44,7 +44,7 @@ const Banner = async () => {
                     <div id="slide3" className="carousel-item relative w-full">
                         <Image
                             src={allAnimals[2].image}
-                            className="w-full"
+                            className="w-full animate__animated animate__pulse animate__infinite animate__slow"
                             alt="something"
                             fill={true}
                         />
@@ -56,7 +56,7 @@ const Banner = async () => {
                     <div id="slide4" className="carousel-item relative w-full">
                         <Image
                             src={allAnimals[3].image}
-                            className="w-full"
+                            className="w-full animate__animated animate__pulse animate__infinite animate__slow"
                             alt="something"
                             fill={true}
                         />

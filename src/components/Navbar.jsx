@@ -22,6 +22,13 @@ const Navbar = () => {
                         className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow text-slate-700 font-medium">
                         <li><Link href="/">Home</Link></li>
                         <li><Link href="/animals">All Animals</Link></li>
+                        {user ? <>
+                            <li><Link href="/profile">My Profile</Link></li>
+                            <li><Link href="/signin" onClick={async () => await authClient.signOut()}>Logout</Link></li>
+                        </> : <>
+                            <li><Link href="/signin">Login</Link></li>
+                            <li><Link href="/signup">Register</Link></li>
+                        </>}
                     </ul>
                 </div>
                 <Link href="/" className="btn btn-ghost text-lg md:text-xl text-[#145C39]">QurbaniHat</Link>
@@ -32,7 +39,7 @@ const Navbar = () => {
                     <li><Link href="/animals">All Animals</Link></li>
                 </ul>
             </div>
-            <div className="navbar-end gap-3">
+            <div className="navbar-end gap-3 hidden lg:flex">
                 {user ? <div className='flex items-center gap-3'>
                     <Link href="/profile" className="btn btn-ghost btn-circle" title="My Profile">
                         {image ? <Image

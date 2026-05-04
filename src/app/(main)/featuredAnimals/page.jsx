@@ -1,6 +1,7 @@
 import { fetchAllAnimals } from "@/lib/data-load";
 import Banner from "@/components/Banner";
 import FeaturedCard from "@/components/FeaturedCard";
+import QurbaniTips from "@/components/QurbaniTips";
 
 const FeaturedAnimals = async () => {
     const response = await fetchAllAnimals();
@@ -15,6 +16,7 @@ const FeaturedAnimals = async () => {
                     featured.map(animal => <FeaturedCard key={animal.id} animal={animal}></FeaturedCard>)
                 }
             </div>
+            <QurbaniTips></QurbaniTips>
         </div>
     );
 };
