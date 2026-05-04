@@ -33,15 +33,27 @@ Simple carousel animation using Animate.css
 Loading spinner for route loading
 
 Npm Packages Used:
+
 nextjs,
+
 react,
+
 react-dom,
+
 better-auth,
+
 better-auth/mongo-adapter,
+
 mongodb,
+
 react-hook-form,
+
 react-toastify,
+
 react-icons,
+
 animate.css,
+
 tailwindcss,
+
 daisyui,
