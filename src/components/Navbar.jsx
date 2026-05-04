@@ -34,17 +34,15 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-3">
                 {user ? <div className='flex items-center gap-3'>
-                    {image && <div className="avatar">
-                        <div className="w-10 rounded-full">
-                            <Image
-                                src={image}
-                                alt={`${user.name}'s profile image`}
-                                width={20}
-                                height={20}
-                                className='h-10 w-10 rounded-full object-cover'
-                            />
-                        </div>
-                    </div>}
+                    <Link href="/profile" className="btn btn-ghost btn-circle" title="My Profile">
+                        {image ? <Image
+                            src={image}
+                            alt={`${user.name}'s profile image`}
+                            width={40}
+                            height={40}
+                            className='h-10 w-10 rounded-full object-cover'
+                        /> : <FaUserCircle className="text-4xl text-[#145C39]" />}
+                    </Link>
                     <p>Welcome, {user.name}</p>
                     <Link href="/signin" onClick={async () => await authClient.signOut()} className="btn bg-[#145C39] text-white font-medium">Logout</Link>
                 </div> : <div>

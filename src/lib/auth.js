@@ -5,7 +5,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 const uri = process.env.MONGODB_URI;
 
 const globalForMongo = globalThis;
-const client = globalForMongo.mongoClient ?? new MongoClient(uri);
+export const client = globalForMongo.mongoClient ?? new MongoClient(uri);
 
 if (process.env.NODE_ENV !== "production") {
     globalForMongo.mongoClient = client;
@@ -14,6 +14,12 @@ if (process.env.NODE_ENV !== "production") {
 export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
+    },
+    user: {
+        changeEmail: {
+            enabled: true,
+            updateEmailWithoutVerification: true,
+        },
     },
     database: mongodbAdapter(client.db("qurbani-hat"), {
         client: client

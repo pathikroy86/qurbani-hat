@@ -1,3 +1,4 @@
+import OrderForm from '@/components/OrderForm';
 import { fetchAllAnimals } from '@/lib/data-load';
 import Image from 'next/image';
 
@@ -11,7 +12,7 @@ const AnimalDetails = async ({ params }) => {
             <h1 className='text-[#1F2A24] text-2xl md:text-4xl font-bold mb-4'>Animal Details</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                 <div>
-                    <Image className='h-[400] w-full rounded-lg'
+                    <Image className='h-[400px] w-full rounded-lg object-cover'
                         src={image}
                         alt={name}
                         width={400}
@@ -28,6 +29,7 @@ const AnimalDetails = async ({ params }) => {
                     <p className='text-[#6D756F]'>{description}</p>
                 </div>
             </div>
+            <OrderForm></OrderForm>
         </div>
     );
 };
