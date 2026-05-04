@@ -1,28 +1,30 @@
 "use client"
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors }, } = useForm();
     const handleLoginFunc = async (info) => {
         const { name, email, image, password } = info;
         try {
-            const { data, error } = await authClient.signUp.email({
+            const { error } = await authClient.signUp.email({
                 name: name,
                 email: email,
                 image: image,
                 password: password,
-                callbackURL: '/',
             })
             if (error) {
-                toast.error("Signup error:", error);
+                toast.error(error.message || "Signup failed");
             } else {
-                toast.success("Signup successful:", data);
+                toast.success("Signup successful. Please login now.");
+                router.push("/signin");
             }
         } catch (err) {
-            toast.error("Exception during signup:", err);
+            toast.error(err.message || "Exception during signup");
         }
     }
     return (

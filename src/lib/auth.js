@@ -14,6 +14,7 @@ if (process.env.NODE_ENV !== "production") {
 export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
+        autoSignIn: false,
     },
     user: {
         changeEmail: {
